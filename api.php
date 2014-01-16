@@ -21,13 +21,7 @@
 
 			$userStats = array('total_views_yt' => $total_views_yt, 'abo' => $abo );
 			echo json_encode($userStats);
-
-			//TODO : 
-			/*
-				database with PDO
-				check all the input
-				file config.php
-			*/
+			
 		} catch (Zend_Gdata_App_HttpException $e) {
 			echo "error";
 		} catch (Zend_Uri_Exception $e) {

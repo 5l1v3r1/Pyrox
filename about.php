@@ -42,7 +42,7 @@
   				</p>
 		        <ul>
 		          <li><p>Follow this application on <a href="https://github.com/martialdidit/pyrox">Github</a>. </p></li>
-		          <li><p>For any help, creat your own issue on <a href="https://github.com/martialdidit/pyrox/issues">Swindle-api Issues</a></p></li>
+		          <li><p>For any help, creat your own issue on <a href="https://github.com/martialdidit/pyrox/issues">Pyrox Issues</a></p></li>
 		        </ul>
             	<p>Hope this application help you in your project ! <small> - Team Pyrox </small></p>
 		  	</fieldset>

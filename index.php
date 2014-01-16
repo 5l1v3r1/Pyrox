@@ -1,4 +1,11 @@
-
+<!--
+    //TODO : 
+    /*
+        database with PDO
+        check all the input
+        file config.php
+    */
+-->
 <!doctype html>
 <html class="no-js" lang="en">
     <head>
@@ -158,8 +165,6 @@
                         $('input[name="username"]').addClass("error");
                         $('#error5').show();
                     }
-
-                    //TODO envoyer les donnes pour l'enregistrement dans la database
                     return false;
                 });
                 $('#username').keyup(function() {
