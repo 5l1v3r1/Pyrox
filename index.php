@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Pyrox</title>
         <link rel="stylesheet" href="stylesheets/app.css" />
+        <link rel="stylesheet" href="foundation-icons/foundation-icons.css" />
         <link rel="icon" type="image/png" href="images/logo.png" />
         <script src="bower_components/modernizr/modernizr.js"></script>
     </head>
@@ -79,7 +80,7 @@
                                 <label for="right-label" class="right inline">Username</label>
                             </div>
                             <div class="small-8 large-6 columns">
-                                <input type="text" name="username" placeholder="Username">
+                                <input type="text" name="username" id="username" placeholder="Username">
                                 <small class="error" id="error5" style="display:none">Invalid entry</small>
                             </div>
                         </div>
@@ -94,14 +95,14 @@
                                 <small class="error" id="errorView" style="display:none">Check the username</small>
                             </div>
                         </div>
-                    </div>
+                    </div>                  
                     <div class="small-12 large-8">
                         <div class="row">
                             <div class="small-4 large-6 columns">
                                 <label for="right-label" class="right inline">Subscribers</label>
                             </div>
                             <div class="small-8 large-6 columns">
-                                <input type="text" name="subscribers" class="error" placeholder="Subscribers" disabled>
+                                <input type="text" name="subscribers" class="error" placeholder="Subscribers" disabled> 
                                 <small class="error" id="errorSubs" style="display:none">Check the username</small>
                             </div>
                         </div>
@@ -158,25 +159,27 @@
                         $('#error5').show();
                     }
 
-                    if($('input[name="fisrtName"]').val() && $('input[name="lastName"]').val() && $('input[name="skype"]').val() && $('input[name="birthday"]').val() && $('.check').is(":checked") && $('input[name="username"]').val()) {
-                        username = $('input[name="username"]').val(); 
-                        $.post("api.php", {username: username}, function(data) {  
-                            if(data == "error") {
-                                $('input[name="subscribers"]').attr("placeholder", "Error, invalid username").blur();
-                                $('input[name="viewCount"]').attr("placeholder", "Error, invalid username").blur();
-                                $('input[name="username"]').addClass("error");
-                                $('#errorSubs').show();
-                                $('#errorView').show();
-                            } else {
-                                $('#errorSubs').hide();
-                                $('#errorView').hide();
-                                $('input[name="subscribers"]').attr("placeholder", data.abo).blur();
-                                $('input[name="viewCount"]').attr("placeholder", data.total_views_yt).blur();
-                            }
-                        }, 'json');
-                    }
-                return false;
+                    //TODO envoyer les donnes pour l'enregistrement dans la database
+                    return false;
                 });
+                $('#username').keyup(function() {
+                    username = $('input[name="username"]').val();
+                    $.post("api.php", {username: username}, function(data) {  
+                        if(data == "error") {
+                            $('input[name="subscribers"]').attr("placeholder", "Error, invalid username").blur();
+                            $('input[name="viewCount"]').attr("placeholder", "Error, invalid username").blur();
+                            $('input[name="username"]').addClass("error");
+                            $('#errorSubs').show();
+                            $('#errorView').show();
+                        } else {
+                            $('#errorSubs').hide();
+                            $('#errorView').hide();
+                            $('input[name="subscribers"]').attr("placeholder", data.abo).blur();
+                            $('input[name="viewCount"]').attr("placeholder", data.total_views_yt).blur();
+                        }
+                    }, 'json');
+                })
+                .keyup();
             });
         </script>
     </body>
