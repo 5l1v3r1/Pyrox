@@ -1,6 +1,6 @@
 # Pyrox
 
-Application Swindle-API created by @martialdidit with Youtube API V2
+Application Swindle-API created by @martialdidit with Youtube API V3 Public
 
 ![pyrox](http://gyazo.com/2db2209b164ed3798b37603ebb608395.png "Application Pyrox")
 
