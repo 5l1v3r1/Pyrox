@@ -76,7 +76,7 @@
                                 <label for="right-label" class="right inline">birthday</label>
                             </div>
                             <div class="small-8 large-6 columns">
-                                <input type="text" name="birthday" placeholder="birthday">
+                                <input type="date" name="birthday" placeholder="birthday">
                                 <small class="error" id="error4" style="display:none">Invalid entry</small>
                             </div>
                         </div>
@@ -126,7 +126,7 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <div data-alert class="erreurCkeck alert-box warning" style="display:none"></div>
+                        <div data-alert class="erreurCkeck alert-box warning small-12 large-6 columns large-centered text-center" style="display:none"></div>
                         <input type="checkbox" class="check"><label for="checkbox"><p>I accept the review agreement</p></label>
                         <button type="submit" class="button join">Let's Go !</button>    
                     </div>      
@@ -136,8 +136,6 @@
 
         <script src="bower_components/jquery/jquery.js"></script>
         <script src="bower_components/foundation/js/foundation.min.js"></script>
-        <script src="js/app.js"></script>
-
         <script type="text/javascript">
             $(function(){
                 $("#formUser").submit(function(){
@@ -167,25 +165,10 @@
                     }
                     return false;
                 });
-                $('#username').keyup(function() {
-                    username = $('input[name="username"]').val();
-                    $.post("api.php", {username: username}, function(data) {  
-                        if(data == "error") {
-                            $('input[name="subscribers"]').attr("placeholder", "Error, invalid username").blur();
-                            $('input[name="viewCount"]').attr("placeholder", "Error, invalid username").blur();
-                            $('input[name="username"]').addClass("error");
-                            $('#errorSubs').show();
-                            $('#errorView').show();
-                        } else {
-                            $('#errorSubs').hide();
-                            $('#errorView').hide();
-                            $('input[name="subscribers"]').attr("placeholder", data.abo).blur();
-                            $('input[name="viewCount"]').attr("placeholder", data.total_views_yt).blur();
-                        }
-                    }, 'json');
-                })
-                .keyup();
             });
         </script>
+        <script src="api.js"></script>
+        <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
+
     </body>
 </html>
